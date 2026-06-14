@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Xuất Báo Cáo Shopee Affiliate</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon"></div>
+                <h1>Shopee Affiliate <span>Exporter</span></h1>
+            </div>
+            <div class="sys-status">
+                <span class="status-dot green animate-pulse"></span>
+                <span class="status-text">Hệ thống sẵn sàng</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="app-workspace">
+            <!-- Left Panel: Control & Profiles -->
+            <section class="panel left-panel">
+                <div class="card control-card">
+                    <div class="card-header">
+                        <h2>Bảng Điều Khiển</h2>
+                        <span class="badge">V3.0.0</span>
+                    </div>
+                    <div class="settings-row">
+                        <label for="input-threads">Số luồng chạy đồng thời:</label>
+                        <input type="number" id="input-threads" min="1" max="10" value="4">
+                    </div>
+                    <div class="btn-group">
+                        <button id="btn-start" class="btn btn-primary btn-glow">Bắt đầu tiến trình</button>
+                        <button id="btn-stop" class="btn btn-danger" disabled>Dừng lại</button>
+                    </div>
+                </div>
+
+                <div class="card profiles-card">
+                    <div class="card-header">
+                        <h2>Danh sách Profiles</h2>
+                        <span class="count-badge" id="profile-count">0 profiles</span>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="table-profiles">
+                            <thead>
+                                <tr>
+                                    <th>Tên Profile</th>
+                                    <th>ID</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">Chưa có dữ liệu. Hãy nhấn bắt đầu.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Instruction & Console -->
+            <section class="panel right-panel">
+                <!-- Container chứa các thẻ chỉ dẫn captcha động -->
+                <div class="instruction-container" id="instruction-container"></div>
+
+                <!-- Live Logs Card -->
+                <div class="card logs-card">
+                    <div class="card-header">
+                        <h2>Nhật Ký Thực Thi (Live Logs)</h2>
+                        <button id="btn-clear-logs" class="btn-text">Xóa log</button>
+                    </div>
+                    <div class="console-box" id="console-logs">
+                        <div class="log-line system">[System] Hệ thống khởi chạy thành công. Sẵn sàng kết nối...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>

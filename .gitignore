@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Local data & downloads
+downloads/*.csv
+downloads/
+
+# Log files
+*.log
+.system_generated/
+
+# OS specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+1. Nhận id profile từ file id.txt
+2. Gọi api mở profile
+3. Truy cập vào shopee.vn
+4. Nếu xuất hiện //*[@href="/buyer/login?next="] thì click vào nó
+5. Đợi xuất hiện //button[text()="Log In" or text()="Đăng nhập"] thì click vào nó và nghỉ 5s
+6. Truy cập https://affiliate.shopee.vn/report/conversion_report
+6.1 Nếu xuất hiện //*[text()="Không có dữ liệu" or text()="No Data"] thì dừng tất cả không thì tiếp tục bước 7
+7. Đợi xuất hiện //a[text()="Xuất dữ liệu" or text()="Export"] thì click vào nó và nghỉ 3s
+8. Truy cập https://affiliate.shopee.vn/export_management
+9. Đợi (//*[@class="export-item-file-name"])[1] lấy thuộc tính href "https://affiliate.shopee.vn/api/v1/export/download?task_id=3711378" đây là link file .csv nhưng khi truy cập
+sẽ tự động tải về mặc định tên file của hệ thống. Tôi muốn thay thế tên file đó bằng tên profile đang chạy. Ví dụ 
+profile_name = profile1 -> file sẽ tên là "profile1.csv"
+
+Lưu ý : Các bước có thể xuất hiện captcha bất cứ lúc nào nên tôi cần 1 hàm check : https://shopee.vn/verify/captcha?anti_bot_tracking_id=gqRjZGVrxHSFomtptTE0MjUxOnRyYWNraW5nX2lkX2tleaJrdtEAAaRhbGdv0gAAAGSjZGVrwKJjdMRAAAAADMC-_Su073lAxHlbLO8upGA90-fAbEh6F8kurHrq8cYhvw9OnDmqgITzFqJhITApBR8HMmDwHBqt6LQw06pjaXBoZXJ0ZXh0xQKtAAAADDKrYvz3f5N8QVqhJMI0GgHvgfsH-MDv6LYyfczVmP9xeTVy_Dc1uFF-Bfp6V62iBh5WaJvM6hESxRltkNX135m_vx1H-_PmLnxC0SrK_sIaJVtqUBy7OBiMLAh4krIwhQTUhiBhPcyIKJGJeAGx1E3Tp5bo1aDxPEd5gmy-Uh0SUcmuDQEmnxV4lWe2S577YDeHvAEtLWz2zdSDYs_4SGU5Lir_j9bZtVrLNPXQjD4NHCsayF0d6rivraJwIynDW4qvTkhd2kiYol7P6l3oiTLIkIX9wYSMoMmeC0DLLaoecyVGmNwWL39kkYrsZpFDXiEEgNf_BWl-BGdbw07jDzP6F0B1-fhP-I_GjWTHhzHKK1Ud3WDdR4vtt986qwKoV19PrnRS3b3ikXhNVEYsnvM6xL4muABI5sogA1bHHeDBMTQBh5qPm7-2keNItQ7C7t1ihIj1MjNzg96-HY7kJIqyVRyb9D-PaJPjF_tZxbXJgKbnC3MK1kfD0VFMFfppS_-P88adDyBzpOP_LEv2c3Qo9VWyEAuz72xZvwnf_U-HdGfgztcABZ-LXW5ShxCQDca7n1RyHVufFWwqdVarzMFyQYbJhHn_uZAN4FhYc_w2BNzrEjWRVTo9F9OHtRAMcc6AxvYe-exQ_HoBCY_2NJXEoDAdFFM8LEF0CQD1-aB_TnY3MNEPLKFq0RPEWF-3CamIpFG3PLfdgsx4xO27CKAwWqAKva7TxHMbab5Px4sO3u6RHmYvTRqhi1ZTSWFZpv7nQv13_ykUJcCdZzG_wNTlqb06c9t06QgQDeBuwzj47UYKEQrUiBjQHLGYCme_GiXXqoMC_olyRpvlBy7dkAa4zsu6drp5XrJTKGK6zj6yr1wApBSPaggK15-q0JUVG9qREqiax1sAmg&app_key=OPAAFFI.PC&client_id=1&next=https%3A%2F%2Fshopee.vn%2Fverify%2Ftraffic%3F%3Fclient_id%3D%26next%3Dhttps%253A%252F%252Faffiliate.shopee.vn%252Fdashboard%26redirect_type%3D1%26should_replace_history%3Dtrue&redirect_type=2&scene=crawler_item&should_replace_history=true
+
+Nếu xuất hiện thì hãy phủ một lớp màu xanh lên màn hình yêu cầu người dùng giải captcha để tiếp tục

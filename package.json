@@ -1,0 +1,14 @@
+{
+  "name": "xuat-bao-cao-chuyen-doi",
+  "version": "1.0.0",
+  "description": "Tool xuat bao cao chuyen doi tu Shopee su dung GPM API & Playwright",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^5.2.1",
+    "patchright": "^1.44.1"
+  }
+}
