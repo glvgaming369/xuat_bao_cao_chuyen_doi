@@ -446,7 +446,8 @@ app.post('/api/start', async (req, res) => {
                         await humanClick(page, downloadBtn);
                         
                         const download = await downloadPromise;
-                        const newFileName = `${profileName}.csv`;
+                        const sanitizedProfileName = profileName.replace(/[\\\/:\*\?"<>\|]/g, '_');
+                        const newFileName = `${sanitizedProfileName}.csv`;
                         const savePath = path.join(downloadDir, newFileName);
                         
                         await download.saveAs(savePath);
